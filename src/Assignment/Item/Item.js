@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Item = ({ service }) => {
-    console.log(service)
+  
     const { price, img, quantity, description } = service;
     return (
         <div>
