@@ -3,7 +3,7 @@ import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-fireba
 import auth from '../firebase.init';
 import { useForm } from "react-hook-form";
 import Loading from '../Assignment/Loading/Loading';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
@@ -14,22 +14,26 @@ const Login = () => {
         user,
         loading,
         error,
-      ] = useSignInWithEmailAndPassword(auth);
+    ] = useSignInWithEmailAndPassword(auth);
 
-      let signInErrorMessage;
+    let signInErrorMessage;
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
-      if(loading || googleLoading){
-          return <Loading></Loading>
-      }
+    if (loading || googleLoading) {
+        return <Loading></Loading>
+    }
 
-      if(error || googleError){
+    if (error || googleError) {
         signInErrorMessage = <p className='text-red'>{error?.message || googleError?.message}</p>
-      }
+    }
 
-      
+
 
     if (user || googleUser) {
         console.log(user || googleUser);
+        navigate(from, { replace: true });
     }
 
     const onSubmit = data => {
@@ -59,7 +63,7 @@ const Login = () => {
                                         message: 'email is required'
                                     },
                                     pattern: {
-                                        value:  /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                                        value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
                                         message: 'provide a valid email'
                                     }
                                 })}
@@ -77,9 +81,9 @@ const Login = () => {
                             <label class="label">
                                 <span class="label-text">Password</span>
                             </label>
-                            <input 
-                            type="password"
-                             placeholder="Password"
+                            <input
+                                type="password"
+                                placeholder="Password"
                                 class="input input-bordered w-full max-w-xs"
                                 {...register("password", {
                                     required: {
