@@ -7,6 +7,10 @@ import Purchase from './Assignment/Purchase/Purchase';
 import Login from './Login/Login';
 import Register from './Login/Register/Register';
 import RequireAuth from './Login/RequireAuth';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Review from './Review/Review';
+import BusinessSummary from './Assignment/BusinessSummary/BusinessSummary';
 
 
 function App() {
@@ -17,7 +21,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/purchase" element={
+        <Route path='/review' element={<Review></Review>}></Route>
+        <Route path='businessSummary' element={<BusinessSummary></BusinessSummary>}></Route>
+        <Route path="/purchase/:id" element={
           <RequireAuth>
             <Purchase></Purchase>
           </RequireAuth>

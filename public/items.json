@@ -1,0 +1,75 @@
+[
+    {
+        "name": "Tair Wang",
+        "supplier": "OEM",
+        "price": "300",
+        "maximum order": "12",
+        "quantity": "300",
+        "description": "Underpinned by time-tested R&D capability, A-Kraft Tools Manufacturing Co., Ltd. has worked on the development and production of sockets.",
+        "img": "https://www.cens.com/cens/news/2019/NPIC_25781.JPG"
+    },
+    {
+        "name": "hand tools",
+        "supplier": "WHEEL ALIGNMENT",
+        "price": "100",
+        "maximum order": "12",
+        "quantity": "300",
+        "description": "make the task easier for you. Hand tools are used by both professional experts for finishing complex tasks and amateur users for DIY",
+        "img": "https://ronixtools.com/en/blog/wp-content/uploads/2020/11/industrial-mechanica-1024x405-1-780x470.jpg"
+    },
+    {
+        
+        "name": "Plier",
+        "supplier": "jonk honk",
+        "price": "150",
+        "maximum order": "12",
+        "quantity": "300",
+        "description": "pliers are hand tools that can help you with, holding, cutting, bending, pulling, compressing, gripping, etc. a wide range of objects and materials in tight and ....",
+        "img": "https://ronixtools.com/en/blog/wp-content/uploads/2020/11/1-42.jpg"
+    },
+    {
+        "name": "Tape measure",
+        "supplier": " Ronix",
+        "price": "180",
+        "maximum order": "12",
+        "quantity": "300",
+        "description": "it doesn’t matter what your project is, a tape measure will always be needed. Do you want to control .",
+        "img": "https://ronixtools.com/en/blog/wp-content/uploads/2020/11/2-2.png"
+    },
+    {
+        "name": "Claw ",
+        "supplier": " KSEIBI",
+        "price": "100",
+        "maximum order": "12",
+        "quantity": "100",
+        "description": "there are different kinds of wrenches with different types, sizes, shapes, and purposes. One type of them is perfectly.",
+        "img": "https://ronixtools.com/en/blog/wp-content/uploads/2020/11/3-34.jpg"
+    },
+    {      
+        "name": "Wrench",
+        "supplier": " C&A Tools",
+        "price": "300",
+        "maximum order": "12",
+        "quantity": "300",
+        "description": " while the other type is designed to loosen tough and stubborn nuts. So, choosing the right wrench can make the tool to handle the job for you.",
+        "img": "https://ronixtools.com/en/blog/wp-content/uploads/2020/11/4-33.jpg"
+    },
+    {      
+        "name": "Screwdriver",
+        "supplier": "Pangu Industrial",
+        "price": "300",
+        "maximum order": "12",
+        "quantity": "300",
+        "description": "these hand tools can be very helpful in many situations. They are ideal for a variety of uses such as repairing, assembling, and so more.",
+        "img": "https://ronixtools.com/en/blog/wp-content/uploads/2020/11/5-23.jpg"
+    },
+    {       
+        "name": "Drill",
+        "supplier": "Wintek Tools",
+        "price": "300",
+        "maximum order": "12",
+        "quantity": "300",
+        "description": "power tool easier and its exclusively designed auxiliary handle, provides the users with exceptional comfort during long hours of working.",
+        "img": "https://ronixtools.com/_next/image?url=https://api1.ronixtools.com/Images/Products/2210/search-thumb-637483821012880245.jpg&w=256&h=undefined&q=100"
+    }
+]

@@ -1,14 +1,68 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+// import product from '../../img/Ronix-tools-cover1.jpg';
 
 const Purchase = () => {
+    const { id } = useParams();
+    // console.log(id);
+
+    // const [services, setServices] = useState({});
+
+
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/purchase/${id}`)
+    //         .then(res => res.json())
+    //         .then(data => setServices(data))
+    //         // console.log(setServices));
+
+    // }, [id])
+
+    const [products, setProducts] = useState({});
+    useEffect(() => {
+        const product = async () => {
+            const { data } = await axios.get(`http://localhost:5000/purchase/${id}`);
+            setProducts(data);
+        };
+        product();
+    }, [id]);
+
+    console.log(products);
+
+
     return (
-        <div>
-            <h2>this is purchase</h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed neque consequatur nemo ipsam! Exercitationem animi nulla incidunt commodi veniam recusandae nobis ducimus, magni deserunt nisi quos vero accusamus ea reprehenderit ipsam. Iure dolores architecto autem. Consectetur libero quaerat esse, corrupti quibusdam distinctio nostrum quas veniam laborum fugiat accusamus reiciendis sunt quam repellat quo est aliquid exercitationem ipsum dolore nulla ducimus! Error, eum hic? Mollitia debitis nam at minima atque esse sed totam quibusdam dignissimos voluptate, laboriosam porro iure nihil dolorum quasi aperiam eum explicabo obcaecati? Excepturi quibusdam nemo debitis tempora consectetur minima eius fuga ullam in sed cum sit iusto incidunt commodi cumque fugit libero odit dolorem, nam eligendi natus animi. Veniam, ipsam ducimus, tempore dolor sint quisquam, et ea officia tenetur ab pariatur cumque. Tempore rerum consequatur autem esse ipsum enim officia ipsa expedita et illo cum dolores saepe similique voluptas, aspernatur commodi ratione harum facere, dolore blanditiis cupiditate numquam magnam. Hic reprehenderit dolor nulla rem architecto eligendi quasi cum dolores impedit, esse debitis quo consectetur facere atque amet cumque animi ducimus id iste! Voluptatibus sint similique vel illo, earum veritatis repellat omnis sed eveniet voluptates possimus ut obcaecati eligendi error excepturi est iste rerum quis in, esse laudantium totam autem nam. Iure, laudantium necessitatibus nesciunt delectus commodi accusantium. Eveniet aliquid iste ex non eius maiores corrupti praesentium nostrum veniam accusantium, earum hic saepe et quam provident corporis molestiae quaerat. Aliquid corporis molestias reprehenderit quidem, ab, totam vero ad neque maxime reiciendis quae. Molestias, asperiores. Vitae sint facere ab cum earum similique inventore assumenda omnis. Provident harum doloribus ex illo molestias quis nihil, natus consequatur asperiores tenetur laboriosam tempore, temporibus adipisci vero quasi quaerat id excepturi dolorum. Ipsam libero et mollitia voluptas dicta quia dolores. Officia possimus facilis optio, quisquam omnis molestiae et, reiciendis repellendus, quam fuga delectus numquam adipisci! Quos officia quidem aspernatur beatae amet autem porro pariatur voluptatum dolore. Aliquam asperiores suscipit maiores aliquid? Aliquid tempore aperiam cum fugit et nemo aut, dolore inventore optio sed neque nesciunt ullam nam, quo minus tempora labore quos veritatis! Fugit, dolore quisquam. Eveniet, eaque numquam quaerat similique ea aut ullam id consequuntur sequi? Repudiandae ex quam perferendis eius recusandae reprehenderit officiis corrupti soluta laboriosam temporibus dolorem esse enim velit necessitatibus iure, natus cum molestias et! Hic iure voluptatibus consequatur, ipsam veritatis possimus cum dolorum expedita quas explicabo sequi, voluptas similique esse animi beatae iusto aspernatur quo, dicta iste optio odio reiciendis provident praesentium pariatur. Exercitationem enim dicta atque reiciendis facilis laboriosam. Temporibus saepe dolorum modi sequi amet nulla, quos, dignissimos ea laudantium reprehenderit provident optio repudiandae delectus? Quas facilis a consequuntur nam perspiciatis suscipit reiciendis maiores soluta vitae odit doloribus optio debitis, sit quae error vel esse neque veritatis! Similique odio quasi corrupti neque! Aperiam numquam corrupti voluptate modi quam harum! Pariatur dolorem magni culpa porro, aliquam consectetur voluptates facere esse reprehenderit provident modi eaque tempore ex! Minima odio dolore error aliquid enim consectetur officiis ducimus quidem cumque sapiente in sed accusamus quae, ab vero optio iste exercitationem. Excepturi corrupti cupiditate illum nobis voluptatibus omnis commodi alias similique aut illo repellendus quam dicta delectus cumque qui, quia atque! Dolor fuga veniam delectus provident repellat nemo optio tempora esse iusto! Nisi, officia ipsam eius repellendus voluptatem exercitationem praesentium, modi itaque dolores reiciendis, pariatur fuga quasi dolor. Necessitatibus provident voluptates optio laborum a repellendus nihil, veniam asperiores, sint corporis commodi deleniti quisquam eligendi ab facilis expedita, omnis praesentium! Optio, recusandae cumque necessitatibus quibusdam perferendis libero dolore consequatur. Ullam cumque ab, facilis at eos hic eligendi, ad recusandae aperiam, officiis quibusdam enim esse aliquid ipsam nulla aliquam? Aliquid voluptates nesciunt totam tempora quis, architecto soluta, tempore cumque quidem alias doloribus nobis repellendus dolorem blanditiis quas iste vero ut sapiente perferendis! Eos vitae sapiente perspiciatis. Eos magnam quis blanditiis quibusdam consequuntur ipsam voluptate sequi provident dolorum odio magni nam quae sunt itaque unde animi doloremque, officiis quidem delectus voluptatem labore? Ab architecto rem cumque repellat eos similique quia, magnam corrupti impedit ipsam at facere mollitia quos earum inventore obcaecati voluptates veritatis vitae dolor saepe quo fugit id? Autem minima quia temporibus soluta omnis corporis nisi necessitatibus mollitia reiciendis provident quos quibusdam molestiae, doloremque delectus dolor exercitationem repellat nesciunt cumque ex ratione dolores, quis non possimus ipsa! Officiis fugiat reprehenderit nisi similique delectus, sequi, iure possimus asperiores deserunt id ipsa provident illum in consequatur assumenda exercitationem, atque incidunt quia! Dolor reiciendis quibusdam soluta culpa aliquam, provident rerum, expedita itaque unde quas porro aspernatur, id autem facere dolores odit sapiente officiis delectus exercitationem nobis fuga. Quas impedit cum aliquid consequuntur atque temporibus quo quidem quasi libero blanditiis cumque error exercitationem voluptatem rem nihil nostrum, rerum iure accusantium ad explicabo harum tempora dolores? Est adipisci repellendus nobis pariatur a quaerat debitis deserunt quibusdam at, modi omnis perspiciatis ut animi quod, alias fugit eius, esse praesentium consequatur vitae eos commodi voluptate ea cum. Distinctio dolorem voluptatem, vitae culpa, totam similique neque perferendis mollitia aliquid, molestiae assumenda! Consequuntur officia aliquid, excepturi, nesciunt, labore tempora rerum id in vel sed pariatur. Maiores veritatis, fugit, sit esse beatae saepe enim laborum blanditiis ea quaerat sunt culpa harum tempore reprehenderit aspernatur! Aliquid, pariatur eos voluptatum accusantium repellat vero dicta. Eveniet aliquid nulla rem amet. Reprehenderit dignissimos neque provident? Ea iure saepe voluptatibus in ducimus vero perspiciatis atque distinctio blanditiis eum architecto harum quidem vitae aliquam possimus cupiditate libero ipsam dolor, quae sapiente. Velit iusto nesciunt accusantium aliquid natus soluta voluptatem facere atque, dolorem quas dignissimos alias esse? Totam, esse quod in voluptatum ex maxime minima laborum dicta expedita. Iusto ab ex ullam sequi explicabo. Nam cum non aspernatur alias est quae voluptate cupiditate numquam quaerat reiciendis? Nemo fugiat sequi fugit. Unde labore omnis assumenda recusandae cupiditate at quis, quae ipsa quod perferendis asperiores non nemo, ducimus voluptas in tenetur sit sapiente, amet possimus? Excepturi nam cum eum, modi earum autem magnam perspiciatis dolores repellendus quaerat quo quis ullam minima vitae velit assumenda debitis aliquam praesentium veritatis deleniti, magni eos! Quasi, voluptatum atque ab, dolor nisi perspiciatis odit cumque earum dolorem nulla facere.
-            </p>
+        <div className='bg-base-200'>
+            <h2 className='text-5xl font bold pt-5'>place order now</h2>
+            <div class="hero p-5 bg-base-200 ">
+
+                <div class="hero-content flex-col lg:flex-row">
+                    <img src={products.img} class="max-w-sm rounded-lg shadow-2xl" alt="" />
+                    <div className='w-300 h-300 '>                       
+                            <p class=" font-bold"> price: ${products.price}</p>
+                            <p class=" font-bold">maximum order: {products.maximumOrder}</p>
+                            <p class="font-bold"> quantity: {products.quantity}</p>
+                            <p class="w-80">{products.description}</p>
+                    </div>
+                </div>
+            </div>
+            <div className='bg-base-200'>
+                <div className='m-3'>
+                    <input type="text" placeholder="maximum order 12 pice" class=" m-3 input input-bordered input-primary w-full max-w-xs" />
+
+                    <input type="email" placeholder="email" class="input input-bordered input-primary w-full max-w-xs" />
+                </div>
+                <div className='m-3'>
+                    <input type="number" placeholder="Your phone number" class="m-3 input input-bordered input-primary w-full max-w-xs" />
+
+                    <input type="address" placeholder="Your address" class="input input-bordered input-primary w-full max-w-xs" />
+                </div>
+                <button class="btn btn-primary">Confirm Order</button>
+            </div>
+
+
+
         </div>
     );
 };
 
-export default Purchase;
+export default Purchase; 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Item from '../Item/Item';
+import Loading from '../Loading/Loading';
 
 const Items = () => {
     const [services, setServices] = useState([]);
@@ -18,8 +19,8 @@ const Items = () => {
             <h3>items : {services.length}</h3>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 
-                {
-                    services.map(service => <Item
+                {services.length === 0 ? <Loading className="justify-self-center "/> : ""}
+                {services.slice(0, 6).map(service => <Item
                         key={service._id}
                         service={service}
                         
