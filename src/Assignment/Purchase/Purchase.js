@@ -110,7 +110,7 @@ const Purchase = () => {
       image: products.img,
     };
 
-    const { data } = await axios.post("https://fathomless-beach-67972.herokuapp.com/order", {
+    const { data } = await axios.post("http://localhost:5000/order", {
       orderInfo,
     });
     if (loading) {
@@ -130,14 +130,17 @@ const Purchase = () => {
       <div className="card-body">
         <form onSubmit={handleSubmit} className="flex flex-col px-10    ">
           <p className="text-4xl font-bold mt-2">{products?.name}</p>
-          <p className="text-justify font-semibold">{products?.description}</p>
           <p className="text-xl font-semibold py-2">
-            Available:{products?.available_quantity}
+            price:{products?.price}
           </p>
-
-          <label className="text-xl font-semibold py-2">
-            Minimum order quantity: {products?.min_order_quantity}
-          </label>
+          <p className="text-xl font-semibold py-2">
+            Available:{products?.quantity}
+          </p>
+          <p className="text-xl font-semibold py-2">
+          minimum order quantity:{products?.min_order_quantity}
+          </p>
+          <p className="text-justify font-semibold">{products?.description}</p>
+          
           <input
             onChange={getQuantity}
             type="text"

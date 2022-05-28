@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Item = ({ service }) => {
     const navigate = useNavigate();
-    const { name, price, img, quantity, description, _id } = service;
+    const { name, price, img, quantity, min_order_quantity, description, _id } = service;
 
     // const navigateToPurchase = id => {
     //     navigate(`/purchase/${id}`);
@@ -19,6 +19,7 @@ const Item = ({ service }) => {
                 <div className="card-body items-center text-center">
                     <p> name: {name}</p>
                     <p> price: {price}</p>
+                    <p> minimum Order: {min_order_quantity}</p>
                     <p> Available quantity: {quantity}</p>
                     
                     <p>{description}</p>

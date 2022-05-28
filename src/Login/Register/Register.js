@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import Loading from '../../Assignment/Loading/Loading';
 import auth from '../../firebase.init';
+import useToken from '../../Hooks/useToken';
 
 
 const Register = () => {
@@ -35,6 +36,8 @@ const Register = () => {
     if (user || googleUser) {
         console.log(user || googleUser);
     }
+
+    // const [token] = useToken(user || googleUser)
 
     const onSubmit = async data => {
         console.log(data);
