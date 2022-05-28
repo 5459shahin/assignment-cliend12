@@ -15,6 +15,7 @@ import AllProducts from './Assignment/AllProducts/AllProducts';
 import Dashboard from './Assignment/Dashboard/Dashboard';
 import UpdateItem from './Assignment/UpdateItem/UpdateItem';
 import NotFound from './NotFound/NotFound';
+import Blogs from './Assignment/Blogs/Blogs';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path='/review' element={<Review></Review>}></Route>
         <Route path='businessSummary' element={<BusinessSummary></BusinessSummary>}></Route>
         <Route path='updateItem' element={<UpdateItem></UpdateItem>}></Route>
+        <Route path='blogs' element={<Blogs></Blogs>}></Route>
         <Route path="/purchase/:id" element={
           <RequireAuth>
             <Purchase></Purchase>

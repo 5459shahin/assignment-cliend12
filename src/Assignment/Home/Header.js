@@ -21,6 +21,7 @@ const Header = () => {
         <li><Link to="/updateItem">Update Item</Link></li>
         <li><Link to="/AllProducts">All products</Link></li>
         <li><Link to="/contact">Contact</Link></li>
+        <li><Link to="/blogs">Blogs</Link></li>
         <li><Link to="/about">About</Link></li>
         {
             user && <li><Link to='/dashboard'>Dashboard</Link></li>

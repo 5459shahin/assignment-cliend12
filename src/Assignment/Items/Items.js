@@ -7,7 +7,7 @@ const Items = () => {
     
 
     useEffect(() => {
-        fetch('http://localhost:5000/service')
+        fetch('https://radiant-everglades-78330.herokuapp.com/service')
             .then(res => res.json())
             .then(data => setServices(data))
             

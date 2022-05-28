@@ -18,7 +18,7 @@ const Purchase = () => {
   useEffect(() => {
     const product = async () => {
       const { data } = await axios.get(
-        `http://localhost:5000/purchase/${id}`
+        `https://radiant-everglades-78330.herokuapp.com/purchase/${id}`
       );
       setProducts(data);
       console.log(data);
@@ -42,7 +42,7 @@ const Purchase = () => {
       image: products.img,
     };
 
-    const { data } = await axios.post("http://localhost:5000/order", {
+    const { data } = await axios.post("https://radiant-everglades-78330.herokuapp.com/order", {
       
       orderInfo,
       

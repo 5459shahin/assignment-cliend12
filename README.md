@@ -1,28 +1,48 @@
-# Getting Started with Create React App
+# live link
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ [ to view it in your browser.](https://manufacturer-assignment.web.app/).
 
-## Available Scripts
 
-In the project directory, you can run:
+### clint side git hub link 
+ [https://github.com/programming-hero-web-course1/manufacturer-website-client-side-5459shahin]
 
-### `npm start`
+ ### server side link
+ (https://github.com/programming-hero-web-course1/manufacturer-website-server-side-5459shahin) to view it in your browser.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### addmin: nipun@gmail.com
+### password: 123456
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Features:
 
-### `npm run build`
+- Fancy Home Page.
+- Dashboard.
+  - User Profile.
+  - User Orders
+  - User can give reviews.
+  - Admin can add tools
+  - Admin can manage orders
+  - Admin can manage tools
+  - Admin can manage users
+- Fancy Blog Page.
+- Attractive Login & Register Page.
+- Login & Register Functionality.
+  - Reset Password.
+  - User Can Logout.
+  - Login With Google.
+  - User Will Not Allowed to Manage Items if they are not logged in.
+  - User can create an account.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Technologies Used:
+
+- [React](https://reactjs.org/)
+- [React-router](https://react-router.js.org/)
+- [Firebase](https://firebase.google.com/)
+- [DaisyUI](https://daisyui.com/)
+- [Font Awesome](https://fontawesome.com/)
+- [SweetAlert2](https://sweetalert2.github.io/)
+- [Google](https://google.com/)
 
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
