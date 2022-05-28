@@ -18,7 +18,8 @@ const Header = () => {
         <li><Link to="/purchase">purchase</Link></li>
         <li><Link to="/businessSummary">business summary</Link></li>
         <li><Link to="/review">Review</Link></li>
-        <li><Link to="/AllProducts">Update product</Link></li>
+        <li><Link to="/updateItem">Update Item</Link></li>
+        <li><Link to="/AllProducts">All products</Link></li>
         <li><Link to="/contact">Contact</Link></li>
         <li><Link to="/about">About</Link></li>
         {

@@ -13,6 +13,7 @@ import Review from './Review/Review';
 import BusinessSummary from './Assignment/BusinessSummary/BusinessSummary';
 import AllProducts from './Assignment/AllProducts/AllProducts';
 import Dashboard from './Assignment/Dashboard/Dashboard';
+import UpdateItem from './Assignment/UpdateItem/UpdateItem';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path='/review' element={<Review></Review>}></Route>
         <Route path='businessSummary' element={<BusinessSummary></BusinessSummary>}></Route>
+        <Route path='updateItem' element={<UpdateItem></UpdateItem>}></Route>
         <Route path="/purchase/:id" element={
           <RequireAuth>
             <Purchase></Purchase>

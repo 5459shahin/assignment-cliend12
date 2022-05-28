@@ -3,8 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Item = ({ service }) => {
     const navigate = useNavigate();
-    const {  price, img, quantity, description, _id } = service;
-   
+    const { name, price, img, quantity, description, _id } = service;
+
     // const navigateToPurchase = id => {
     //     navigate(`/purchase/${id}`);
 
@@ -17,16 +17,18 @@ const Item = ({ service }) => {
                     <img src={img} alt="Shoes" className="rounded-xl" />
                 </figure>
                 <div className="card-body items-center text-center">
+                    <p> name: {name}</p>
                     <p> price: {price}</p>
-                    <p>quantity: {quantity}</p>
+                    <p> Available quantity: {quantity}</p>
+                    
                     <p>{description}</p>
 
-                  
+
                     <div className="card-footer bg-transparent border-0">
-                    <Link to={`purchase/${service._id}`} className="btn btn-dark w-100">
-                    Buy Now
-                    </Link>
-                </div>
+                        <Link to={`purchase/${service._id}`} className="btn btn-dark w-100">
+                            Buy Now
+                        </Link>
+                    </div>
 
                 </div>
             </div>
