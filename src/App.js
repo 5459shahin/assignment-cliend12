@@ -14,6 +14,7 @@ import BusinessSummary from './Assignment/BusinessSummary/BusinessSummary';
 import AllProducts from './Assignment/AllProducts/AllProducts';
 import Dashboard from './Assignment/Dashboard/Dashboard';
 import UpdateItem from './Assignment/UpdateItem/UpdateItem';
+import NotFound from './NotFound/NotFound';
 
 
 function App() {
@@ -37,11 +38,13 @@ function App() {
             <Dashboard></Dashboard>
           </RequireAuth>
         }></Route>
-         
+
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path="/AllProducts" element={<AllProducts></AllProducts>}></Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
+
       <Footer></Footer>
     </div>
   );
