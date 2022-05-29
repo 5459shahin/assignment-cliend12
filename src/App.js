@@ -13,9 +13,12 @@ import Review from './Review/Review';
 import BusinessSummary from './Assignment/BusinessSummary/BusinessSummary';
 import AllProducts from './Assignment/AllProducts/AllProducts';
 import Dashboard from './Assignment/Dashboard/Dashboard';
-import UpdateItem from './Assignment/UpdateItem/UpdateItem';
+import UpdateItem from './Assignment/Dashboard/UpdateItem/UpdateItem'
 import NotFound from './NotFound/NotFound';
-import Blogs from './Assignment/Blogs/Blogs';
+import Blogs from './Assignment/Dashboard/MyOrder/MyOrder';
+import MyOrder from './Assignment/Dashboard/MyOrder/MyOrder';
+import MyProfile from './Assignment/Dashboard/MyProfile/MyProfile';
+import AdminPanel from './Assignment/Dashboard/AdminPanel/AdminPanel';
 
 
 function App() {
@@ -26,9 +29,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path='/review' element={<Review></Review>}></Route>
+
         <Route path='businessSummary' element={<BusinessSummary></BusinessSummary>}></Route>
-        <Route path='updateItem' element={<UpdateItem></UpdateItem>}></Route>
         <Route path='blogs' element={<Blogs></Blogs>}></Route>
         <Route path="/purchase/:id" element={
           <RequireAuth>
@@ -39,7 +41,15 @@ function App() {
           <RequireAuth>
             <Dashboard></Dashboard>
           </RequireAuth>
-        }></Route>
+        }>
+
+          <Route path="updateItem" element={<UpdateItem></UpdateItem>}></Route>
+          <Route path="myOrder" element={<MyOrder></MyOrder>}></Route>
+          <Route path="myProfile" element={<MyProfile></MyProfile>}></Route>
+          <Route path="adminPanel" element={<AdminPanel></AdminPanel>}></Route>
+          <Route path="review" element={<Review></Review>}></Route>
+
+        </Route>
 
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>

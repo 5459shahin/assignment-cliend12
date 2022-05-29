@@ -19,7 +19,7 @@ const Items = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 
                 {services.length === 0 ? <Loading className="justify-self-center "/> : ""}
-                {services/* .slice(0, 6) */.map(service => <Item
+                {services.slice(0, 6).map(service => <Item
                         key={service._id}
                         service={service}
                         

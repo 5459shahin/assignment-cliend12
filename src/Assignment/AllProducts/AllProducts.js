@@ -1,27 +1,29 @@
-/* import React from 'react';
+ import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import useProduct from '../Hooks/useProduct';
 import { MdDeleteForever } from 'react-icons/md';
+import UseProduct from '../../Hooks/UseProduct';
 
 
 const AllProducts = () => {
-    const [service, setService] = useProduct();
+    const [service, setService] = UseProduct();
     
     const navigate = useNavigate();
 
-    const deleteItem = (id) => {
+    const deleteItem = (_id) => {
+
         const proceed = window.confirm('Are You delete the Cart');
         if (proceed) {
-            const url = `https://radiant-everglades-78330.herokuapp.com/service/${id}`
+            const url = `http://localhost:5000/service/${_id}`
             
             fetch(url, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
                 .then(data => {
-                    const remaining = service.filter(service => service._id !== id);
+                    const remaining = service.filter(service => service._id !== _id);
                     setService(remaining);
                 })
+                console.log(setService)
 
         }
 
@@ -76,4 +78,4 @@ const AllProducts = () => {
     );
 };
 
-export default AllProducts; */
+export default AllProducts; 

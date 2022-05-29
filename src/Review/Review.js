@@ -1,63 +1,43 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 const Review = () => {
+    const { register, handleSubmit } = useForm();
+    const onSubmit = data => {
+        // console.log(data);
+        const url = `http://localhost:5000/reviews`;
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+        console.log(data)
+    };
+
     return (
-        <div className='grid grid-cols-3 gap-4'>
-            <div class="card w-96 bg-base-100 shadow-xl">
-                <div class="avatar place-content-center">
-                    <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                        <img src="https://api.lorem.space/image/face?hash=3174" alt="" />
-                    </div>
-                </div>
-                <div class="card-body items-center text-center">
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                    <div class="rating">
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                    </div>
+        <div className='flex  my-16 justify-center items-center'>
 
-                </div>
-            </div>
-            <div class="card w-96 bg-base-100 shadow-xl">
-                <div class="avatar place-content-center">
-                    <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                        <img src="https://api.lorem.space/image/face?hash=3174" alt="" />
-                    </div>
-                </div>
-                <div class="card-body items-center text-center">
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                    <div class="rating">
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                    </div>
+            <div className='card w-96 bg-base-100 shadow-xl'>
+                <h1 className=' text-secondary text-center text-2xl'>Please Add items</h1>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div className='form-control w-full p-10'>
+                        
+                        <input className=' mb-2 p-2 border-2 rounded-3 ' type="number" {...register("ratting", { min: 1, max: 5 })} />
+                        <textarea placeholder='description' className=' mb-2 p-2 border-2 rounded-3 ' type='text' {...register("description")} />
 
-                </div>
-            </div>
-            <div class="card w-96 bg-base-100 shadow-xl">
-                <div class="avatar place-content-center">
-                    <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                        <img src="https://api.lorem.space/image/face?hash=3174" alt="" />
+                        <input className=' bg-secondary p-2 rounded-3xl mt-4 text-white' type="submit" value='ADD TO ORDER' />
                     </div>
-                </div>
-                <div class="card-body items-center text-center">
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                    <div class="rating">
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                        <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                    </div>
+                </form>
+            </div >
 
-                </div>
-            </div>
-        </div>
+        </div >
     );
 };
 
