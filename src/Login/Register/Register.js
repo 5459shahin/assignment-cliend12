@@ -1,5 +1,5 @@
 import React from 'react';
-import {  useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import Loading from '../../Assignment/Loading/Loading';
@@ -16,12 +16,14 @@ const Register = () => {
         user,
         loading,
         error,
-      ] = useCreateUserWithEmailAndPassword(auth);
+    ] = useCreateUserWithEmailAndPassword(auth);
 
-      /* update profile */
-      const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    /* update profile */
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
-      const navigate = useNavigate();
+    const [token] = useToken(user || googleUser)
+
+    const navigate = useNavigate();
 
     let signInErrorMessage;
 
@@ -33,18 +35,23 @@ const Register = () => {
         signInErrorMessage = <p className='text-red'>{error?.message || googleError?.message || updateError?.message}</p>
     }
 
+
     if (user || googleUser) {
         console.log(user || googleUser);
     }
 
-    // const [token] = useToken(user || googleUser)
+    if (token) {
+        navigate('/home');
+    }
+
+
 
     const onSubmit = async data => {
         console.log(data);
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
         console.log('update done');
-        navigate('/home');
+        // navigate('/home');
 
     }
 

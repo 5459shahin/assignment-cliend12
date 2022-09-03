@@ -6,55 +6,54 @@ import axios from "axios";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Loading/Loading'
+import { useRef } from 'react';
 
 
 
 const Purchase = () => {
+  const quantityRef = useRef('');
   const navigate = useNavigate();
   const [user, loading] = useAuthState(auth);
-  const [quantity, setQuantity] = useState(0);
   const { id } = useParams();
   const [products, setProducts] = useState({});
+  const [quantity, setQuantity] = useState(0);
+
   useEffect(() => {
-    const product = async () => {
-      const { data } = await axios.get(
-        `https://radiant-everglades-78330.herokuapp.com/purchase/${id}`
-      );
-      setProducts(data);
-      console.log(data);
-    };
-    product();
-  }, [id]);
+    fetch(`http://localhost:5000/purchase/${id}`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setProducts(data);
+      })
+  }, [])
 
-  const getQuantity = (event) => {
-    setQuantity(event.target.value);
-  };
-
-  const handleSubmit = async (event) => {
+  const handlePurchase = async (event) => {
     event.preventDefault();
-    const orderPrice = parseInt(quantity) * parseInt(products.price_per_unit);
-    // console.log(orderPrice);
+    const orderPrice = parseFloat(products.quantity) * parseFloat(products.price_per_unit);
+    console.log(orderPrice);
     const orderInfo = {
-      email: user.email,
-      product: products.name,
-      quantity:products.quantity,
-      totalprice: orderPrice,
+      price: products.price,
+      userEmail: user.email,
+      productName: products.name,
+      orderQuantity: quantityRef.current.value,
       image: products.img,
     };
+    console.log(orderInfo);
 
-    const { data } = await axios.post("https://radiant-everglades-78330.herokuapp.com/order", {
-      
-      orderInfo,
-      
-    });
-    console.log('ok', data)
-    if (loading) {
-      <Loading></Loading>
-    }
-    if (data.insertedId) {
-      toast.success("Order added successfully");
-      navigate("/dashboard");
-    }
+    fetch(`http://localhost:5000/order`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(orderInfo)
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.insertedId) {
+          console.log(data);
+          toast.success('Order placed successfully!');
+        }
+      })
   };
 
   return (
@@ -63,7 +62,7 @@ const Purchase = () => {
         <img src={products?.img} alt="Album" />
       </figure>
       <div className="card-body">
-        <form onSubmit={handleSubmit} className="flex flex-col px-10    ">
+        <form onSubmit={handlePurchase} className="flex flex-col px-10    ">
           <p className="text-4xl font-bold mt-2">{products?.name}</p>
           <p className="text-xl font-semibold py-2">
             price:{products?.price}
@@ -72,14 +71,13 @@ const Purchase = () => {
             Available:{products?.quantity}
           </p>
           <p className="text-xl font-semibold py-2">
-          minimum order quantity:{products?.min_order_quantity}
+            minimum order quantity:{products?.min_order_quantity}
           </p>
           <p className="text-justify font-semibold">{products?.description}</p>
-          
+
           <input
-            onChange={getQuantity}
-            type="text"
-            name="quan"
+            ref={quantityRef}
+            type="number"
             className="input input-bordered w-full text-lg"
           />
 
@@ -100,13 +98,13 @@ const Purchase = () => {
           )}
 
           <input
-            disabled={
-              quantity < products?.min_order_quantity ||
-              quantity > products?.available_quantity
-            }
+            // disabled={
+            //   quantity < products?.min_order_quantity ||
+            //   quantity > products?.available_quantity
+            // }
             className={
               quantity < products?.min_order_quantity ||
-              quantity > products?.available_quantity
+                quantity > products?.available_quantity
                 ? "btn bg-gradient-to-r  from-sky-200 to-[#3a5353] mb-4 border-none text-white mt-8 "
                 : "mt-8 btn bg-gradient-to-r  from-sky-500 to-[#2BAAA9] mb-4  border-none text-white "
             }

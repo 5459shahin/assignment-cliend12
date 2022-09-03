@@ -25,8 +25,8 @@ const Item = ({ service }) => {
                     <p>{description}</p>
 
 
-                    <div className="card-footer bg-transparent border-0">
-                        <Link to={`purchase/${service._id}`} className="btn btn-dark w-100">
+                    <div className=" card-footer bg-transparent border-0">
+                        <Link to={`purchase/${service._id}`} className="bg-slate-500 btn btn-outline btn-primary m-8 w-100">
                             Buy Now
                         </Link>
                     </div>

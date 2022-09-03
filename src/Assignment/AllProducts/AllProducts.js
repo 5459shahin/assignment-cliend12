@@ -1,4 +1,4 @@
- import React from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MdDeleteForever } from 'react-icons/md';
 import UseProduct from '../../Hooks/UseProduct';
@@ -6,15 +6,15 @@ import UseProduct from '../../Hooks/UseProduct';
 
 const AllProducts = () => {
     const [service, setService] = UseProduct();
-    
+
     const navigate = useNavigate();
 
     const deleteItem = (_id) => {
 
         const proceed = window.confirm('Are You delete the Cart');
         if (proceed) {
-            const url = `http://localhost:5000/service/${_id}`
-            
+            const url = `https://radiant-everglades-78330.herokuapp.com/service/${_id}`
+
             fetch(url, {
                 method: 'DELETE'
             })
@@ -23,7 +23,7 @@ const AllProducts = () => {
                     const remaining = service.filter(service => service._id !== _id);
                     setService(remaining);
                 })
-                console.log(setService)
+            console.log(setService)
 
         }
 
@@ -59,7 +59,7 @@ const AllProducts = () => {
                                     <td>{service.name}</td>
                                     <td>{service.price}</td>
                                     <td>{service.quantity}</td>
-                                    
+
 
                                     <td> <p className='delete-btn text-center justify-content-end' onClick={() => deleteItem(product._id)}><MdDeleteForever /></p>
                                     </td>

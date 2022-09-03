@@ -23,13 +23,13 @@ const UpdateItem = () => {
 
     }
     return (
-        <div className='bg-slate-800'>
+        <div className='bg-slate-800 p-5'>
             <h2>Update items</h2>
-            <div className='border border-sky-500 mx-auto w-85'>
-                <form className=' d-flex flex-column  bg-slate-600 ' onSubmit={handleSubmit(onSubmit)}>
+            <div className='card bg-slate-800 shadow-xl w-96 mx-auto'>
+                <form className=' d-flex flex-column bg-slate-600 ' onSubmit={handleSubmit(onSubmit)}>
                     <input type="text" placeholder="name" class="m-5 input input-bordered input-primary w-full max-w-xs" {...register("name")} /><br />
 
-                    <input type="number" placeholder="m-5 price" class="input input-bordered input-secondary w-full max-w-xs" {...register("price")} /> <br />
+                    <input type="number" placeholder=" price" class="input input-bordered input-secondary w-full max-w-xs" {...register("price")} /> <br />
 
                     <input type="number" placeholder="quantity" class="m-5 input input-bordered input-primary w-full max-w-xs" {...register("quantity")} /><br />
 

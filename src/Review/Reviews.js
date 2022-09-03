@@ -7,7 +7,7 @@ const Reviews = () => {
     const [reviews, setReviews] = useState([])
     console.log(reviews)
     useEffect(() => {
-        const url = `http://localhost:5000/reviews`;
+        const url = `https://radiant-everglades-78330.herokuapp.com/reviews`;
         fetch(url, {
             method: 'GET'
 
